@@ -15,8 +15,9 @@ class OpenAiClient:
                     {"role": "user", "content": user_message}
                 ]
             )
+            # print(response)
             return response.choices[0].message.content
-        except Exception as e:
+        except OpenAIError as e:
             # logging here
             raise
 
@@ -29,7 +30,4 @@ if __name__ == "__main__":
     asyncio.run(main())
 
 
-
-
-
-# OpenAiClient.ask()
+OpenAiClient.ask()
